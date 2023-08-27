@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 const meta: Meta<SwimUiComponent> = {
   title: 'SwimUI/Swim',
   component: SwimUiComponent,
+  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       imports: [CommonModule],
