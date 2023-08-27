@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwimUiComponent } from './swim-ui.component';
+import { ButtonComponent } from './button.component';
 
-describe('SwimUiComponent', () => {
-  let component: SwimUiComponent;
-  let fixture: ComponentFixture<SwimUiComponent>;
+describe('ButtonComponent', () => {
+  let component: ButtonComponent;
+  let fixture: ComponentFixture<ButtonComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SwimUiComponent]
+      declarations: [ButtonComponent]
     });
-    fixture = TestBed.createComponent(SwimUiComponent);
+    fixture = TestBed.createComponent(ButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

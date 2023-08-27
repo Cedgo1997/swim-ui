@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/swim-ui",
       "sourceRoot": "projects/swim-ui/src",
-      "prefix": "lib",
+      "prefix": "sui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
