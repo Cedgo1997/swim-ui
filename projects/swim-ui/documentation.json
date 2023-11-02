@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-10c96d2ff1fdcdcca55e57326314628146ce2a3207c12f027a74614ea9f992a9c92e44f2c188cdcf34ca70e624da39f574855f02a2ba143fff3983410a03266d",
+            "id": "component-ButtonComponent-ae77a73a83147a389a396b6630adfa9451fd8a7b97b0a56305364de400bb99d3168c3c094d341c8dbfbc4e2dd798eaabc0e17e5221bbcd7875e0d0be60379c16",
             "file": "projects/swim-ui/src/lib/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -18,7 +18,7 @@
             "providers": [],
             "selector": "sui-button",
             "styleUrls": [
-                "./button.component.css"
+                "./button.component.scss"
             ],
             "styles": [],
             "templateUrl": [
@@ -28,7 +28,18 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "type",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -39,16 +50,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.css']\n})\nexport class ButtonComponent {\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n  type: string = 'primary';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./button.component.css"
+                    "data": "@import \"node_modules/@fontsource/roboto\";\r\n@import './../../styles/colors';\r\n@import './../../styles/backgrounds';\r\n\r\n%btn-base {\r\n    border: none;\r\n    min-width: 70px;\r\n    padding: 0 12px 0 12px;\r\n    height: 30px;\r\n    font-weight: 500;\r\n    border-radius: 15px;\r\n    letter-spacing: 0.8px;\r\n    font-family: 'Roboto', sans-serif;\r\n    cursor: pointer;\r\n}\r\n\r\n.sui-btn {\r\n    @extend %btn-base;\r\n    box-shadow: 0px 4px 9px -5px rgba(0, 0, 0, 0.1);\r\n    color: $white;\r\n    transition: background-color 0.2s ease-in-out;\r\n\r\n    &--primary {\r\n        background-color: $primary;\r\n\r\n        &:hover {\r\n            background-color: $primary-light;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $primary-dark;\r\n        }\r\n    }\r\n\r\n    &--secondary {\r\n        background-color: $secondary;\r\n\r\n        &:hover {\r\n            background-color: $secondary-light;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $secondary-dark;\r\n        }\r\n    }\r\n\r\n    &--success {\r\n        background-color: $success-dark;\r\n\r\n        &:hover {\r\n            background-color: $success;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $success-light;\r\n        }\r\n    }\r\n\r\n    &--danger {\r\n        background-color: $danger-dark;\r\n\r\n        &:hover {\r\n            background-color: $danger;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $danger-light;\r\n        }\r\n    }\r\n\r\n    &--info {\r\n        background-color: $info-dark;\r\n\r\n        &:hover {\r\n            background-color: $info;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $info-light;\r\n        }\r\n    }\r\n\r\n    &--warning {\r\n        background-color: $warning-light;\r\n\r\n        &:hover {\r\n            background-color: $warning;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $warning-dark;\r\n        }\r\n    }\r\n\r\n}",
+                    "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<p>button works!</p>\n"
+            "templateData": "<button class=\"sui-btn\" [ngClass]=\"'sui-btn--' + type\">\n    Click me please or you are gay\n</button>"
         }
     ],
     "modules": [
@@ -100,6 +111,36 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Danger",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'danger'\r\n        },\r\n    }),\r\n}"
+            },
+            {
+                "name": "Demo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'primary'\r\n        },\r\n    }),\r\n}"
+            },
+            {
+                "name": "Info",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'info'\r\n        },\r\n    }),\r\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -107,17 +148,47 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs']\r\n}"
+                "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        type: {\r\n            options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info'],\r\n            control: { type: 'text' },\r\n            defaultValue: 'primary',\r\n            description: 'Button color palette by type.'\r\n        }\r\n    },\r\n}"
             },
             {
-                "name": "Primary",
+                "name": "preview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/.storybook/preview.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Preview",
+                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n        },\r\n    }),\r\n}"
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'secondary'\r\n        },\r\n    }),\r\n}"
+            },
+            {
+                "name": "Success",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'success'\r\n        },\r\n    }),\r\n}"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'warning'\r\n        },\r\n    }),\r\n}"
             }
         ],
         "functions": [],
@@ -138,6 +209,36 @@
         "groupedVariables": {
             "projects/swim-ui/src/lib/components/button/button.stories.ts": [
                 {
+                    "name": "Danger",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'danger'\r\n        },\r\n    }),\r\n}"
+                },
+                {
+                    "name": "Demo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'primary'\r\n        },\r\n    }),\r\n}"
+                },
+                {
+                    "name": "Info",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'info'\r\n        },\r\n    }),\r\n}"
+                },
+                {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -145,17 +246,49 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs']\r\n}"
+                    "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        type: {\r\n            options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info'],\r\n            control: { type: 'text' },\r\n            defaultValue: 'primary',\r\n            description: 'Button color palette by type.'\r\n        }\r\n    },\r\n}"
                 },
                 {
-                    "name": "Primary",
+                    "name": "Secondary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n        },\r\n    }),\r\n}"
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'secondary'\r\n        },\r\n    }),\r\n}"
+                },
+                {
+                    "name": "Success",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'success'\r\n        },\r\n    }),\r\n}"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'warning'\r\n        },\r\n    }),\r\n}"
+                }
+            ],
+            "projects/swim-ui/.storybook/preview.ts": [
+                {
+                    "name": "preview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/.storybook/preview.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Preview",
+                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
                 }
             ]
         },
@@ -183,10 +316,50 @@
         "status": "low",
         "files": [
             {
+                "filePath": "projects/swim-ui/.storybook/preview.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/swim-ui/src/lib/components/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Danger",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Demo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Info",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -206,7 +379,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Success",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

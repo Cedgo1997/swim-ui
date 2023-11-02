@@ -6,15 +6,55 @@ import { ButtonComponent } from './button.component';
 
 const meta: Meta<ButtonComponent> = {
     component: ButtonComponent,
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    argTypes: {
+        label: {
+            control: { type: 'text' },
+            defaultValue: 'Click me!',
+            description: 'Button label to be shown.'
+        },
+        type: {
+            options: ['solid', 'outline', 'gradient'],
+            control: { type: 'radio' },
+            defaultValue: 'solid',
+            description: 'Button color palette by type.'
+        },
+        disabled: {
+            options: [true, false],
+            control: { type: 'boolean' },
+            defaultValue: false,
+            description: 'Button disabled or not.'
+        }
+    },
 };
 
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
-    render: () => ({
-        props: {
-        },
-    }),
+export const Solid: Story = {
+    args: {
+        type: 'solid',
+        label: "Button solid"
+    }
+}
+
+export const Outline: Story = {
+    args: {
+        type: 'outline',
+        label: "Button outline"
+    }
+}
+
+export const Gradient: Story = {
+    args: {
+        type: 'gradient',
+        label: "Button gradient"
+    }
+}
+export const Disabled: Story = {
+    args: {
+        label: "Button disabled",
+        type: 'solid',
+        disabled: true
+    }
 }

@@ -1,0 +1,87 @@
+@import "node_modules/@fontsource/roboto";
+@import './../../styles/colors';
+@import './../../styles/backgrounds';
+
+%btn-base {
+    border: none;
+    min-width: 70px;
+    padding: 0 12px 0 12px;
+    height: 30px;
+    font-weight: 500;
+    border-radius: 15px;
+    letter-spacing: 0.8px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.sui-btn {
+    @extend %btn-base;
+    box-shadow: 0px 4px 9px -5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out;
+
+    &--solid {
+        color: $white;
+        background-color: $aqua-500;
+
+        &:hover {
+            background-color: $aqua-600;
+        }
+
+        &:active {
+            background-color: $aqua-700;
+        }
+
+        &:disabled {
+            color: $aqua-700;
+            background-color: $aqua-200;
+            opacity: 0.5;
+        }
+    }
+
+    &--outline {
+        color: $aqua-700;
+        border: 1px solid $aqua-700;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $aqua-50;
+        }
+
+        &:active {
+            background-color: $aqua-100;
+        }
+
+        &:disabled {
+            color: $aqua-700;
+            border: 1px solid $aqua-700;
+            background-color: transparent;
+            opacity: 0.5;
+        }
+    }
+
+    &--gradient {
+        background: linear-gradient(45deg, var(--aqua300), var(--aqua400), var(--aqua600));
+        color: $white;
+        transition: --aqua300 0.5s, --aqua400 0.6s, --aqua600 0.8s;
+
+        &:hover {
+            --aqua300: var(--aqua400);
+            --aqua400: var(--aqua500);
+            --aqua600: var(--aqua700);
+        }
+
+        &:active {
+            --aqua300: var(--aqua400);
+            --aqua400: var(--aqua600);
+            --aqua600: var(--aqua800);
+        }
+
+        &:disabled {
+            color: $aqua-700;
+            --aqua300: var(--aqua50);
+            --aqua400: var(--aqua100);
+            --aqua600: var(--aqua300);
+            opacity: 0.5;
+        }
+    }
+}

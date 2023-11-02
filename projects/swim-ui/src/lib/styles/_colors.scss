@@ -1,0 +1,79 @@
+$black: #000;
+$white: #FFF;
+
+$primary: #20566B;
+$primary-dark: #1a4354;
+$primary-light: #2d7591;
+
+$aqua-950: #163136;
+$aqua-900: #284b51;
+$aqua-800: #2c585e;
+$aqua-700: #2d6b71;
+$aqua-600: #30828a;
+$aqua-500: #37a1a3;
+$aqua-400: #52bdbe;
+$aqua-300: #82d4d4;
+$aqua-200: #bae7e6;
+$aqua-100: #daf3f2;
+$aqua-50: #f0fbfb;
+
+
+$gradient-dark: $aqua-400, $aqua-600;
+$gradient-darker: $aqua-500, $aqua-700;
+$gradient-darkest: $aqua-600, $aqua-800;
+$gradient-disabled: $aqua-100, $aqua-300;
+
+/* Use these when gradient needs to be transitioned */
+
+:root {
+    --aqua50: #f0fbfb;
+    --aqua100: #daf3f2;
+    --aqua300: #82d4d4;
+    --aqua500: #37a1a3;
+    --aqua700: #2d6b71;
+    --aqua600: #30828a;
+    --aqua800: #2c585e;
+}
+
+
+@property --aqua100 {
+    syntax: '<color>';
+    initial-value: $aqua-100;
+    inherits: false;
+}
+
+@property --aqua300 {
+    syntax: '<color>';
+    initial-value: $aqua-300;
+    inherits: false;
+}
+
+@property --aqua400 {
+    syntax: '<color>';
+    initial-value: $aqua-400;
+    inherits: false;
+}
+
+@property --aqua500 {
+    syntax: '<color>';
+    initial-value: $aqua-500;
+    inherits: false;
+}
+
+@property --aqua600 {
+    syntax: '<color>';
+    initial-value: $aqua-600;
+    inherits: false;
+}
+
+@property --aqua700 {
+    syntax: '<color>';
+    initial-value: $aqua-700;
+    inherits: false;
+}
+
+@property --aqua800 {
+    syntax: '<color>';
+    initial-value: $aqua-800;
+    inherits: false;
+}
