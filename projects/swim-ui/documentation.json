@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-ae77a73a83147a389a396b6630adfa9451fd8a7b97b0a56305364de400bb99d3168c3c094d341c8dbfbc4e2dd798eaabc0e17e5221bbcd7875e0d0be60379c16",
+            "id": "component-ButtonComponent-f39f05ae5d0dfb14c6ef7f85d7d84441aa7081b0eb65b181743160bdc860b96d0e044cd05dfd0d06983d199068ef12e66598b888d425ee19480fd02f03d41d40",
             "file": "projects/swim-ui/src/lib/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -26,20 +26,111 @@
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
-            "outputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "EventEmitter<boolean>"
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "type",
-                    "defaultValue": "'primary'",
+                    "defaultValue": "'gradient'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 12
                 }
             ],
+            "methodsClass": [
+                {
+                    "name": "btnClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\n\n@Component({\n  selector: 'sui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n  @Output() onClick: EventEmitter<boolean> = new EventEmitter<boolean>();\n  @Input() disabled = false;\n  @Input() label = \"\";\n  type: string = 'gradient';\n\n  btnClicked(): void {\n    this.onClick.emit(true);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"node_modules/@fontsource/roboto\";\r\n@import './../../styles/colors';\r\n@import './../../styles/backgrounds';\r\n\r\n%btn-base {\r\n    border: none;\r\n    min-width: 70px;\r\n    padding: 0 12px 0 12px;\r\n    height: 30px;\r\n    font-weight: 500;\r\n    border-radius: 15px;\r\n    letter-spacing: 0.8px;\r\n    font-family: 'Roboto', sans-serif;\r\n    cursor: pointer;\r\n}\r\n\r\n.sui-btn {\r\n    @extend %btn-base;\r\n    box-shadow: 0px 4px 9px -5px rgba(0, 0, 0, 0.1);\r\n    transition: background-color 0.2s ease-in-out;\r\n\r\n    &--solid {\r\n        color: $white;\r\n        background-color: $aqua-500;\r\n\r\n        &:hover {\r\n            background-color: $aqua-600;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $aqua-700;\r\n        }\r\n\r\n        &:disabled {\r\n            color: $aqua-700;\r\n            background-color: $aqua-200;\r\n            opacity: 0.5;\r\n        }\r\n    }\r\n\r\n    &--outline {\r\n        color: $aqua-700;\r\n        border: 1px solid $aqua-700;\r\n        background-color: transparent;\r\n\r\n        &:hover {\r\n            background-color: $aqua-50;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $aqua-100;\r\n        }\r\n\r\n        &:disabled {\r\n            color: $aqua-700;\r\n            border: 1px solid $aqua-700;\r\n            background-color: transparent;\r\n            opacity: 0.5;\r\n        }\r\n    }\r\n\r\n    &--gradient {\r\n        background: linear-gradient(45deg, var(--aqua300), var(--aqua400), var(--aqua600));\r\n        color: $white;\r\n        transition: --aqua300 0.5s, --aqua400 0.6s, --aqua600 0.8s;\r\n\r\n        &:hover {\r\n            --aqua300: var(--aqua400);\r\n            --aqua400: var(--aqua500);\r\n            --aqua600: var(--aqua700);\r\n        }\r\n\r\n        &:active {\r\n            --aqua300: var(--aqua400);\r\n            --aqua400: var(--aqua600);\r\n            --aqua600: var(--aqua800);\r\n        }\r\n\r\n        &:disabled {\r\n            color: $aqua-700;\r\n            --aqua300: var(--aqua50);\r\n            --aqua400: var(--aqua100);\r\n            --aqua600: var(--aqua300);\r\n            opacity: 0.5;\r\n        }\r\n    }\r\n}",
+                    "styleUrl": "./button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<button class=\"sui-btn\" [ngClass]=\"'sui-btn--' + type\" [disabled]=\"disabled\" (click)=\"btnClicked()\">\n    {{label}}\n</button>"
+        },
+        {
+            "name": "TextFieldComponent",
+            "id": "component-TextFieldComponent-456fd1b0a71de6ed7150c8c5df2351dac3c40843457ff00af666f2bd69a469edee2e7fee5c05973dff06d93dabf8d116ebe850ad590bd1014d8a63f9d42e55bc",
+            "file": "projects/swim-ui/src/lib/components/text-field/text-field.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sui-text-field",
+            "styleUrls": [
+                "./text-field.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./text-field.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "formData",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "any",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -50,16 +141,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'sui-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss']\n})\nexport class ButtonComponent {\n  type: string = 'primary';\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'sui-text-field',\n  templateUrl: './text-field.component.html',\n  styleUrls: ['./text-field.component.scss']\n})\nexport class TextFieldComponent {\n  @Input() formData: any;\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"node_modules/@fontsource/roboto\";\r\n@import './../../styles/colors';\r\n@import './../../styles/backgrounds';\r\n\r\n%btn-base {\r\n    border: none;\r\n    min-width: 70px;\r\n    padding: 0 12px 0 12px;\r\n    height: 30px;\r\n    font-weight: 500;\r\n    border-radius: 15px;\r\n    letter-spacing: 0.8px;\r\n    font-family: 'Roboto', sans-serif;\r\n    cursor: pointer;\r\n}\r\n\r\n.sui-btn {\r\n    @extend %btn-base;\r\n    box-shadow: 0px 4px 9px -5px rgba(0, 0, 0, 0.1);\r\n    color: $white;\r\n    transition: background-color 0.2s ease-in-out;\r\n\r\n    &--primary {\r\n        background-color: $primary;\r\n\r\n        &:hover {\r\n            background-color: $primary-light;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $primary-dark;\r\n        }\r\n    }\r\n\r\n    &--secondary {\r\n        background-color: $secondary;\r\n\r\n        &:hover {\r\n            background-color: $secondary-light;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $secondary-dark;\r\n        }\r\n    }\r\n\r\n    &--success {\r\n        background-color: $success-dark;\r\n\r\n        &:hover {\r\n            background-color: $success;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $success-light;\r\n        }\r\n    }\r\n\r\n    &--danger {\r\n        background-color: $danger-dark;\r\n\r\n        &:hover {\r\n            background-color: $danger;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $danger-light;\r\n        }\r\n    }\r\n\r\n    &--info {\r\n        background-color: $info-dark;\r\n\r\n        &:hover {\r\n            background-color: $info;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $info-light;\r\n        }\r\n    }\r\n\r\n    &--warning {\r\n        background-color: $warning-light;\r\n\r\n        &:hover {\r\n            background-color: $warning;\r\n        }\r\n\r\n        &:active {\r\n            background-color: $warning-dark;\r\n        }\r\n    }\r\n\r\n}",
-                    "styleUrl": "./button.component.scss"
+                    "data": "",
+                    "styleUrl": "./text-field.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<button class=\"sui-btn\" [ngClass]=\"'sui-btn--' + type\">\n    Click me please or you are gay\n</button>"
+            "templateData": "<div class=\"sui-text-field\">\n    <input type=\"text\" [name]=\"formData.name\" [id]=\"formData.id\">\n</div>"
         }
     ],
     "modules": [
@@ -111,34 +202,24 @@
     "miscellaneous": {
         "variables": [
             {
-                "name": "Danger",
+                "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'danger'\r\n        },\r\n    }),\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        label: \"Button disabled\",\r\n        type: 'solid',\r\n        disabled: true\r\n    }\r\n}"
             },
             {
-                "name": "Demo",
+                "name": "Gradient",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'primary'\r\n        },\r\n    }),\r\n}"
-            },
-            {
-                "name": "Info",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'info'\r\n        },\r\n    }),\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        type: 'gradient',\r\n        label: \"Button gradient\"\r\n    }\r\n}"
             },
             {
                 "name": "meta",
@@ -148,7 +229,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        type: {\r\n            options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info'],\r\n            control: { type: 'text' },\r\n            defaultValue: 'primary',\r\n            description: 'Button color palette by type.'\r\n        }\r\n    },\r\n}"
+                "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        label: {\r\n            control: { type: 'text' },\r\n            defaultValue: 'Click me!',\r\n            description: 'Button label to be shown.'\r\n        },\r\n        type: {\r\n            options: ['solid', 'outline', 'gradient'],\r\n            control: { type: 'radio' },\r\n            defaultValue: 'solid',\r\n            description: 'Button color palette by type.'\r\n        },\r\n        disabled: {\r\n            options: [true, false],\r\n            control: { type: 'boolean' },\r\n            defaultValue: false,\r\n            description: 'Button disabled or not.'\r\n        }\r\n    },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextFieldComponent>",
+                "defaultValue": "{\r\n    component: TextFieldComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        formData: {\r\n            control: { type: 'text' },\r\n            defaultValue: {\r\n                id: 0,\r\n                name: 'Field'\r\n            },\r\n            description: \"Text field metadata.\"\r\n        }\r\n    },\r\n}"
+            },
+            {
+                "name": "Outline",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        type: 'outline',\r\n        label: \"Button outline\"\r\n    }\r\n}"
             },
             {
                 "name": "preview",
@@ -161,34 +262,24 @@
                 "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: \"^on[A-Z].*\" },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n}"
             },
             {
-                "name": "Secondary",
+                "name": "Solid",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'secondary'\r\n        },\r\n    }),\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        type: 'solid',\r\n        label: \"Button solid\"\r\n    }\r\n}"
             },
             {
-                "name": "Success",
+                "name": "TextField",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'success'\r\n        },\r\n    }),\r\n}"
-            },
-            {
-                "name": "Warning",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'warning'\r\n        },\r\n    }),\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        formData: {\r\n            id: 0,\r\n            name: 'Field'\r\n        }\r\n    }\r\n}"
             }
         ],
         "functions": [],
@@ -203,40 +294,41 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextFieldComponent>",
+                "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
             }
         ],
         "enumerations": [],
         "groupedVariables": {
             "projects/swim-ui/src/lib/components/button/button.stories.ts": [
                 {
-                    "name": "Danger",
+                    "name": "Disabled",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'danger'\r\n        },\r\n    }),\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        label: \"Button disabled\",\r\n        type: 'solid',\r\n        disabled: true\r\n    }\r\n}"
                 },
                 {
-                    "name": "Demo",
+                    "name": "Gradient",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'primary'\r\n        },\r\n    }),\r\n}"
-                },
-                {
-                    "name": "Info",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'info'\r\n        },\r\n    }),\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        type: 'gradient',\r\n        label: \"Button gradient\"\r\n    }\r\n}"
                 },
                 {
                     "name": "meta",
@@ -246,37 +338,49 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        type: {\r\n            options: ['primary', 'secondary', 'success', 'danger', 'warning', 'info'],\r\n            control: { type: 'text' },\r\n            defaultValue: 'primary',\r\n            description: 'Button color palette by type.'\r\n        }\r\n    },\r\n}"
+                    "defaultValue": "{\r\n    component: ButtonComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        label: {\r\n            control: { type: 'text' },\r\n            defaultValue: 'Click me!',\r\n            description: 'Button label to be shown.'\r\n        },\r\n        type: {\r\n            options: ['solid', 'outline', 'gradient'],\r\n            control: { type: 'radio' },\r\n            defaultValue: 'solid',\r\n            description: 'Button color palette by type.'\r\n        },\r\n        disabled: {\r\n            options: [true, false],\r\n            control: { type: 'boolean' },\r\n            defaultValue: false,\r\n            description: 'Button disabled or not.'\r\n        }\r\n    },\r\n}"
                 },
                 {
-                    "name": "Secondary",
+                    "name": "Outline",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'secondary'\r\n        },\r\n    }),\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        type: 'outline',\r\n        label: \"Button outline\"\r\n    }\r\n}"
                 },
                 {
-                    "name": "Success",
+                    "name": "Solid",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'success'\r\n        },\r\n    }),\r\n}"
-                },
+                    "defaultValue": "{\r\n    args: {\r\n        type: 'solid',\r\n        label: \"Button solid\"\r\n    }\r\n}"
+                }
+            ],
+            "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts": [
                 {
-                    "name": "Warning",
+                    "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                    "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextFieldComponent>",
+                    "defaultValue": "{\r\n    component: TextFieldComponent,\r\n    tags: ['autodocs'],\r\n    argTypes: {\r\n        formData: {\r\n            control: { type: 'text' },\r\n            defaultValue: {\r\n                id: 0,\r\n                name: 'Field'\r\n            },\r\n            description: \"Text field metadata.\"\r\n        }\r\n    },\r\n}"
+                },
+                {
+                    "name": "TextField",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    render: () => ({\r\n        props: {\r\n            type: 'warning'\r\n        },\r\n    }),\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        formData: {\r\n            id: 0,\r\n            name: 'Field'\r\n        }\r\n    }\r\n}"
                 }
             ],
             "projects/swim-ui/.storybook/preview.ts": [
@@ -307,6 +411,19 @@
                     "description": "",
                     "kind": 180
                 }
+            ],
+            "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextFieldComponent>",
+                    "file": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
             ]
         }
     },
@@ -331,7 +448,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -339,7 +456,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Danger",
+                "name": "Disabled",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -349,17 +466,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Demo",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Info",
+                "name": "Gradient",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -379,7 +486,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Secondary",
+                "name": "Outline",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -389,17 +496,36 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Success",
+                "name": "Solid",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "projects/swim-ui/src/lib/components/button/button.stories.ts",
+                "filePath": "projects/swim-ui/src/lib/components/text-field/text-field.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TextFieldComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Warning",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/swim-ui/src/lib/components/text-field/text-field.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TextField",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

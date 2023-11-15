@@ -24,6 +24,17 @@ const meta: Meta<ButtonComponent> = {
             control: { type: 'boolean' },
             defaultValue: false,
             description: 'Button disabled or not.'
+        },
+        onClick: {
+            control: {
+                type: 'none'
+            }
+        },
+        btnClicked: {
+            control: {
+                type: 'none',
+                description: 'Emit button click event.'
+            }
         }
     },
 };
