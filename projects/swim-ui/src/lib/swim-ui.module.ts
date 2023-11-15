@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { ButtonComponent } from './components/button/button.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
   declarations: [
-    ButtonComponent
+    ButtonComponent,
+    SpinnerComponent
   ],
   imports: [
   ],
   exports: [
-    ButtonComponent
+    ButtonComponent,
+    SpinnerComponent
   ]
 })
 export class SwimUiModule { }
