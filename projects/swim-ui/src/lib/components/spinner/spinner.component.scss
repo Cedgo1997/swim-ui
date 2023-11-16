@@ -1,0 +1,52 @@
+@import './../../styles/colors';
+@import './../../styles/backgrounds';
+
+%circle-base {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+}
+
+:host {
+    display: block;
+    width: fit-content;
+}
+
+.sui-spinner {
+    position: relative;
+
+    &__loader {
+        @extend %circle-base;
+        outline: 10px solid $aqua-300;
+        clip-path: inset(-10% 50% 50% -10%);
+        animation: spin 1s linear infinite;
+        z-index: 1;
+    }
+
+    &__bg {
+        @extend %circle-base;
+        outline: 10px solid $aqua-100;
+        z-index: 0;
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
